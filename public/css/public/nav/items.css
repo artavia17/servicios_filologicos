@@ -1,0 +1,75 @@
+
+
+.navbar-brand img{
+    width: 36px;
+}
+
+label.navbar-toggler-icon{
+    background-image: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 25px;
+    position: relative;
+    transform: translateY(0px);
+    transition: .2s ease;
+}
+
+label.navbar-toggler-icon hr{
+    margin: 0px;
+    border: 2px solid #F35D00;
+    opacity: 1;
+    border-radius: 10px;
+    transition: .2s ease;
+    opacity: 1;
+    background-color: #F35D00;
+}
+
+#menu_hamburguesa{
+    display: none;
+}
+
+#menu_hamburguesa:checked + .navbar-toggler-icon hr:nth-of-type(2){
+    opacity: 0;
+}
+
+#menu_hamburguesa:checked + .navbar-toggler-icon{
+    transform: translateY(-4px);
+}
+
+#menu_hamburguesa:checked + .navbar-toggler-icon hr:nth-of-type(1){
+    transform: rotate(45deg) translate(10px, 11px);
+}
+
+#menu_hamburguesa:checked + .navbar-toggler-icon hr:nth-of-type(3){
+    transform: rotate(-45deg) translate(3px, -5px);
+}
+
+button.navbar-toggler{
+    border: none;
+    outline: none;
+}
+
+button.navbar-toggler:focus{
+    box-shadow: none;
+}
+
+
+.movile{
+    display: none !important;
+}
+
+.estritorio{
+    display: flex;
+}
+
+@media (max-width: 700px) {
+    .movile{
+        display: block !important;
+    }
+
+    .estritorio{
+        display: none;
+    }
+}

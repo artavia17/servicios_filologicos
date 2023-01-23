@@ -1,0 +1,24 @@
+@import url('./nav/nav.css');
+@import url('./home/style.css');
+
+.btn_orange{
+    background-color: #F35D00 !important;
+    color: white !important;
+}
+
+.btn_orange:hover{
+    background-color: #be4900 !important;
+    color: white !important;
+}
+
+
+.form-control:focus,
+.form-check-input:focus{
+    border-color: #F35D00 !important;
+    box-shadow: 0 0 0 0.25rem rgb(243 93 0 / 25%) !important;
+}
+
+.form-check-input:checked {
+    background-color: #F35D00 !important;
+    border-color: #F35D00 !important;;
+}

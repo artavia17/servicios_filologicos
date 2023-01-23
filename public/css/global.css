@@ -1,0 +1,22 @@
+@import url('./public/nav/items.css');
+@import url('./public/home/style.css');
+
+@font-face {
+    font-family: AwakenRegular;
+    src: url('../fonts/AwakenRegular-WyZAO.ttf');
+}
+
+@font-face {
+    font-family: BarlowCondensed;
+    src: url('../fonts/BarlowCondensed-Medium.otf');
+}
+
+:root{
+    --black_color: #161616;
+    --white_color: white;
+}
+
+.bg_black_color{
+    background-color: var(--black_color);
+    color: var(--white_color);
+}
