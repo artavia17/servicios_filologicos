@@ -4,14 +4,17 @@
     </IfModule>
 
     RewriteEngine On
+    RewriteBase /
 
-    # Redirect www to non-www (PRIMERO)
-    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    # Redirect www to non-www (PRIMERO - todas las variaciones)
+    RewriteCond %{HTTP_HOST} ^www\.serviciosfilologicos\.com$ [NC,OR]
+    RewriteCond %{HTTP_HOST} ^www\.serviciosfilologicos\.com$ [NC]
+    RewriteRule ^(.*)$ https://serviciosfilologicos.com/$1 [R=301,L]
 
-    # Force HTTPS
+    # Force HTTPS para dominio sin www
     RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*)$ https://serviciosfilologicos.com/$1 [R=301,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
