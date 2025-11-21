@@ -7,6 +7,26 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
+| Redirect www to non-www (SEO Optimization)
+|--------------------------------------------------------------------------
+|
+| This ensures that www.serviciosfilologicos.com redirects to
+| serviciosfilologicos.com for better SEO and consistency.
+|
+*/
+
+if (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'www.') === 0) {
+    $host = str_replace('www.', '', $_SERVER['HTTP_HOST']);
+    $uri = $_SERVER['REQUEST_URI'] ?? '/';
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'https';
+
+    header("HTTP/1.1 301 Moved Permanently");
+    header("Location: {$protocol}://{$host}{$uri}");
+    exit();
+}
+
+/*
+|--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance
 |--------------------------------------------------------------------------
 |
