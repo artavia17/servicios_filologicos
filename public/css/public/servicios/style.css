@@ -1,0 +1,521 @@
+section.servicios_portada  header{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+section.servicios_portada  header .contenido{
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: black;
+    height: 100vh;
+
+}
+
+dsection.servicios_portada header img {
+    object-fit: cover;
+}
+
+section.servicios_portada header .image {
+    width: 100%;
+    background: black;
+}
+section.servicios_portada  header .contenido{
+    color: white;
+    font-family: BarlowCondensed;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+section.servicios_portada  header .container{
+    max-width: 650px;
+}
+
+.contenido_cursos{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+section.servicios_portada h2{
+    font-family: BarlowBold;
+}
+
+section.servicios_portada h3{
+    font-family: BarlowSemiBold;
+}
+
+section.servicios_portada input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: #D95D00;
+    /* Not removed via appearance */
+    margin: 0;
+
+    font: inherit;
+    color: currentColor;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+}
+section.servicios_portada input[type="radio"]:checked{
+    background-color: #DBD302;
+}
+
+section.servicios_portada label{
+    font-family: BarlowLight;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+
+.cursos_all{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+}
+
+.cursos_all article img{
+    transition: .7s ease;
+    width: 100%;
+    transform: scale(1.3)  rotate(0deg);
+}
+
+.cursos_all article:hover img{
+    transform: scale(1.4)  rotate(6deg);
+}
+
+.cursos_all article div{
+    height: 150px;
+    overflow: hidden;
+}
+
+.cursos_all article h3{
+    font-family: BarlowLight;
+}
+.cursos_all article button{
+    background: #D95D00;
+    font-family: BarlowLight;
+    font-size: 1rem;
+    transition: .2s ease;
+}
+
+.cursos_all article button:hover{
+    background: #a84600;
+}
+
+.cursos_all a{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+section.pagination {
+    grid-area: 4 / span 3;
+    width: 100%;
+}
+
+.flex.justify-between.flex-1.sm\:hidden,
+p.text-sm.text-gray-700.leading-5{
+    display: none !important;
+}
+
+nav.flex.items-center.justify-between {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+span.relative.z-0.inline-flex.shadow-sm.rounded-md {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between{
+    margin: auto;
+    width: 100%;
+}
+
+span.relative.z-0.inline-flex.shadow-sm.rounded-md span,
+span.relative.z-0.inline-flex.shadow-sm.rounded-md a {
+    width: 30px !important;
+    padding: 0px !important;
+    height: 30px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 6px;
+    border: none !important;
+    background: #f8fafc !important;
+    font-family: BarlowSemiBold;
+    font-family: 1.3rem;
+}
+
+span.relative.z-0.inline-flex.shadow-sm.rounded-md a{
+    color: #D95D00;
+    text-decoration: none;
+}
+
+.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between svg {
+    width: 32px;
+    background: #f8fafc;
+}
+span.relative.z-0.inline-flex.shadow-sm.rounded-md  {
+    box-shadow: none !important;
+}
+
+.servicios_individuales header,
+.servicios_individuales .pasta_header{
+    height: 100vh;
+    background: #000000bd;
+}
+
+.servicios_individuales header{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section.servicios_individuales .pasta_header{
+    display: flex;
+    align-content: center;
+}
+
+section.servicios_individuales .pasta_header h1{
+    width: 65%;
+}
+
+section.servicios_individuales .content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+}
+
+section.servicios_individuales .description{
+    font-family: BarlowLight;
+    color: black !important;
+    font-size: 1.3rem;
+}
+
+.formulario_contacto,
+.formulario_contacto form{
+    display: flex;
+    flex-flow: column;
+}
+
+.formulario_contacto input,
+.formulario_contacto textarea,
+.formulario_contacto button{
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+}
+
+.error_validation{
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    font-family: BarlowLight;
+    color: red !important;
+    font-size: 1rem;
+}
+
+.formulario_contacto button{
+    background: #D95D00;
+    color: white;
+    font-family: BarlowLight;
+    font-size: 1.2rem;
+    padding: 5px 0px;
+}
+
+
+.formulario_contacto input,
+.formulario_contacto textarea{
+    border: 2px solid black;
+    padding: 4px 10px;
+    outline: none;
+    font-family: BarlowLight;
+    font-size: 1.2rem;
+}
+
+.formulario_contacto input.error,
+.formulario_contacto textarea.error{
+    border: 2px solid red;
+}
+
+.formulario_contacto h2{
+    color: #D95D00;
+    font-family: BarlowBold;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.comments{
+    margin-bottom: 10px;
+    background: black;
+}
+
+.comments h1{
+    font-size: 2.4rem;
+    font-family: BarlowBold;
+}
+
+.comments p{
+    font-family: BarlowRegular;
+    font-size: 1.2rem;
+}
+
+.comments form input,
+.comments form textarea{
+    outline:  none;
+    background: transparent !important;;
+    border: 2px solid white !important;
+    border-radius: 0px !important;
+    font-size: 1.2rem;
+    color: white;
+    font-family: BarlowLight;
+}
+
+.comments form input.error,
+.comments form textarea.error{
+    border: 2px solid red !important;
+}
+
+
+.comments form input:focus,
+.comments form textarea:focus{
+    box-shadow: none !important;
+    outline: none !important;
+    color: white;
+    font-family: BarlowLight;
+}
+
+.comments form input::placeholder,
+.comments form textarea::placeholder{
+    color: white;
+    font-family: BarlowLight;
+}
+
+.comments form button{
+
+    background: var(--orange_color);
+    color: white;
+    max-width: 200px;
+    padding: 4px 0px;
+    font-family: BarlowLight;
+    font-size: 1.2rem;
+    transition: .2s ease;
+}
+
+.comments form button:hover{
+    background: #c74e01;
+}
+
+.comment_user:nth-of-type(1){
+    margin-top: 30px;
+}
+
+.comment_user{
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.comment_user h2{
+    color: #DBD302;
+    font-family: BarlowBold;
+    font-size: 1.7rem;
+}
+
+.comment_user h3{
+    color: #DBD302;
+    font-family: BarlowLight;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+.comment_user p{
+    color: white;
+    font-family: BarlowRegular;
+}
+
+section.users {
+    max-height: 500px;
+    overflow: auto;
+    margin-top: 20px;
+}
+
+.servicios_relacionados h2{
+    font-size: 2.4rem;
+    font-family: BarlowBold;
+    color: black;
+}
+
+.servicios_relacionados .cursos_all article div{
+    height: 230px;
+}
+
+.servicios_relacionados .cursos_all article h3{
+    margin-top: 4px;
+}
+
+.image img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+@media (max-width: 700px) {
+
+    section.servicios_portada header{
+        grid-template-columns: 1fr !important;
+
+    }
+
+    .contenido_cursos{
+        grid-template-columns: 1fr;
+    }
+
+    .cursos_all{
+        display: flex;
+        flex-flow: column;
+    }
+
+    .filtros {
+        margin-bottom: 24px;
+    }
+
+    nav.navbar.navbar-expand-lg.bg-body-tertiary.fixed-top div {
+        margin-bottom: 0px !important;
+    }
+
+    .servicios_portada header{
+        background-color: black;
+        height: auto !important;
+    }
+    .header_movile_servicios h1{
+        font-family: AwakenRegular;
+        font-size: 2.3rem;
+        color: var(--orange_color);
+    }
+
+    .header_movile_servicios div,
+    .header_movile_servicios p{
+        font-family: BarlowMedium;
+        font-size: 1.1rem;
+        color: white !important;
+    }
+    .header_movile_servicios hr {
+        border: 2px solid #DBD302;
+        opacity: 1;
+        width: 20%;
+        margin-top: 0px;
+    }
+
+    .servicios_individuales header,
+    .servicios_individuales .pasta_header{
+        height: 28vh;
+    }
+
+    section.servicios_individuales header {
+        background-size: cover;
+    }
+
+    section.servicios_individuales .content,
+    .comment_user{
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+    }
+
+    section.servicios_individuales .pasta_header h1 {
+        width: 100%;
+    }
+
+    .pasta_header hr {
+        margin-top: 14px;
+        width: 109px;
+        border: 2px solid #DBD302;
+        opacity: 1;
+    }
+    .formulario_contacto h2,
+    .comments h1,
+    .servicios_relacionados h2{
+        text-align: left;
+        font-size: 2.2rem;
+        margin-top: 20px;
+    }
+
+    .servicios_relacionados h2{
+        margin-top: 0px !important;
+    }
+
+    section.users {
+        max-height: 1000px;
+    }
+
+
+    .comment_user{
+        margin-bottom: 11px;
+        margin-top: 0px;
+    }
+
+    section.users{
+        margin-top: 0px !important;
+    }
+
+    section.servicios_individuales form{
+        display: flex;
+        flex-flow: column;
+    }
+
+    section.servicios_individuales form div{
+        width: 100%;
+        padding-right: 0px !important;
+    }
+
+    .comments h1{
+        margin-top: 0px !important;
+    }
+
+}
+
+.description_movile_services.aos-init.aos-animate {
+    margin-bottom: 30px;
+}
+
+.description_movile_services.aos-init.aos-animate {
+    margin-bottom: 30px;
+}
+
+.botton_view_new_services {
+    font-family: BarlowCondensed;
+    background-color: var(--orange_color);
+    text-decoration: none;
+    padding: 11px 21px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+
+.botton_view_new_services:hover {
+    font-family: BarlowCondensed;
+    background-color: var(--orange_color);
+    text-decoration: none;
+    padding: 11px 21px;
+    color: white;
+    font-size: 1.1rem;
+}
+

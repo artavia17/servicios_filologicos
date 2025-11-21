@@ -1,0 +1,87 @@
+.modal_send_message {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: #0000000f;
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    animation: entrada_modal 1s ease;
+    transition: 1s ease;
+}
+
+.modal_send_message.remove{
+    opacity: 0;
+}
+
+@keyframes entrada_modal {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.modal_content {
+    width: 520px;
+    height: 300px;
+    background: white;
+    border-radius: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    position: relative;
+}
+
+.modal_content svg.bi-check,
+.modal_content svg.bi-chat-right-dots-fill{
+    color: green;
+}
+
+.modal_content h2{
+    font-family: BarlowBold;
+    color: var(--orange_color);
+    font-size: 2.2rem;
+}
+
+.modal_content svg.bi-chat-right-dots-fill {
+    margin: 27px 0px;
+}
+
+.modal_content p{
+    font-size: 1.4rem;
+    font-family: BarlowRegular;
+    text-align: center;
+}
+
+.modal_content button{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+}
+
+
+@media (max-width: 700px) {
+    .modal_content{
+        width: 94%;
+        text-align: center;
+    }
+
+    .modal_content h2 {
+        margin-top: 19px;
+    }
+
+    .modal_content p {
+        margin-bottom: 28px;
+    }
+}

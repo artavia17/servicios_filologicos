@@ -1,0 +1,104 @@
+li.nav-item a{
+    font-size: 19px;
+}
+
+footer section{
+    font-size: 22px;
+}
+
+li.nav-item a:hover{
+    color: var(--orange_color) !important;
+}
+
+nav img{
+    transition: .2s ease;
+    transform: scale(1);
+}
+
+nav img:hover{
+    transform: scale(1.1);
+}
+
+.movile_desaparecer {
+    display: block;
+}
+
+.movil_view{
+    display: none !important;
+}
+
+button.navbar-toggler svg {
+    color: var(--orange_color);
+}
+
+@media (max-width: 700px) {
+    .movile_desaparecer{
+        display: none !important;
+    }
+
+    button.navbar-toggler{
+        padding: 0px;
+    }
+
+    .movil_view{
+        display: block !important;
+    }
+
+    nav{
+        background: var(--white_color);
+    }
+
+    nav div.mt-3{
+        margin-top: 0px !important;
+    }
+
+    .navbar-collapse a{
+        color: var(--black_color) !important;
+        text-align: center;
+    }
+
+}
+
+.all_content article {
+    height: 231px;
+    max-width: 344px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+    margin: 27px auto;
+}
+
+.all_content article:nth-of-type(1){
+    margin: 0px auto;
+}
+
+
+@media (min-width: 700px) {
+
+    /*Scroll*/
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 6px;
+        border-radius: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #dadada;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #F35D00 !important;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ad4504 !important;
+    }
+
+}

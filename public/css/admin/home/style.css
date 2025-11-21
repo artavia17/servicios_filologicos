@@ -1,0 +1,38 @@
+#dropbox{
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 4px dashed rgb(216, 216, 216);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.arrastrar{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(240, 248, 255, 0.308);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+#dropbox video{
+    width: 100%;
+}
+
+img#imagen_drag {
+    width: 100%;
+}
+
+.tox-tinymce {
+    border-radius: 0px !important;
+    border: 1px solid #ced4da !important;
+}

@@ -1,0 +1,211 @@
+@import url('./public/nav/items.css');
+@import url('./public/home/style.css');
+@import url('./public/about/style.css');
+@import url('./public/servicios/style.css');
+@import url('./public/conozca/conozca.css');
+@import url('./public/modals.css');
+
+html {
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: AwakenRegular;
+    src: url('../fonts/AwakenRegular-WyZAO.ttf');
+}
+
+@font-face {
+    font-family: BarlowSemiBold;
+    src: url("../fonts/Barlow-SemiBold.otf");
+}
+
+@font-face {
+    font-family: BarlowBold;
+    src: url("../fonts/Barlow-Bold.otf");
+}
+
+@font-face {
+    font-family: BarlowCondensed;
+    src: url('../fonts/BarlowCondensed-Medium.otf');
+}
+
+@font-face {
+    font-family: BarlowLight;
+    src: url("../fonts/BarlowCondensed-Light.otf");
+}
+
+@font-face {
+    font-family: BarlowRegular;
+    src: url("../fonts/Barlow-Regular.otf");
+}
+
+@font-face {
+    font-family: BarlowMedium;
+    src: url("../fonts/Barlow-Medium.otf");
+}
+
+.font-regular{
+    font-family: BarlowCondensed;
+}
+
+.font-light{
+    font-family: BarlowLight;
+}
+
+:root{
+    --black_color: #161616;
+    --white_color: white;
+    --orange_color: #f35d00;
+}
+
+button{
+    box-shadow: none;
+    outline: none;
+    border: none !important;
+}
+
+button:focus{
+    box-shadow: none !important;
+}
+
+.bg_black_color{
+    background-color: var(--black_color);
+    color: var(--white_color);
+}
+
+#textarea_input{
+    height: 350px !important;
+}
+
+img.icons {
+    width: 43px;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+
+.fixed_icon-whatsapp {
+    position: fixed;
+    z-index: 1;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link.active{
+    color: #F35D00 !important;
+}
+
+nav{
+    background: transparent;
+    transition: .2s ease;
+    backdrop-filter: blur(0px);
+}
+
+nav.active {
+    background: rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(20px);
+}
+
+section.conozcanos_all{
+    margin-top: 171px;
+}
+
+@media (max-width: 700px){
+    section.conozcanos_all{
+        margin-top: 0px;
+    }
+}
+
+
+.error_404 h1{
+    font-family: BarlowLight;
+    font-size: 4rem;
+}
+
+.error_404 h2{
+    font-family: BarlowBold;
+    font-size: 5rem;
+}
+
+.error_404 a{
+    padding: 10px 21px;
+    background: orange;
+    color: white;
+    text-decoration: none;
+    font-family: BarlowBold;
+}
+
+.error_404 a:hover{
+    color: white;
+}
+
+.absolute_arrow {
+    position: absolute;
+    bottom: 15px;
+    background: transparent;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s ease;
+
+}
+
+/* .absolute_arrow:hover{
+    width: 80px;
+    height: 80px;
+    bottom: 10px;
+} */
+
+.absolute_arrow svg{
+    color: white;
+    animation: arrow 2s ease infinite;
+}
+
+@keyframes arrow {
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(10px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+
+.view_services {
+    background-color: var(--orange_color);
+    text-decoration: none;
+    padding: 11px 14px;
+    color: white;
+    transition: .2s ease;
+}
+
+.view_services:hover{
+    background-color:#c74e02;
+    color: white;
+}
+
+.servicios_portada .description{
+    margin-bottom: 25px;
+}
+
+
+@media(min-width: 1200px){
+    .background_video video{
+        width: 100%;
+        height: auto;
+    }
+}
