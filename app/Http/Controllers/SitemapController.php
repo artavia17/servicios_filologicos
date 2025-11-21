@@ -9,15 +9,23 @@ class SitemapController extends Controller
 {
     public function index()
     {
-        $servicios = DB::table('servicios')
-            ->where('activo', 1)
-            ->select('slug', 'updated_at')
-            ->get();
+        try {
+            $servicios = DB::table('servicios')
+                ->where('activo', 1)
+                ->select('slug', 'updated_at')
+                ->get();
+        } catch (\Exception $e) {
+            $servicios = collect(); // Empty collection if table doesn't exist
+        }
 
-        $conozcanos = DB::table('conozcanos')
-            ->where('activo', 1)
-            ->select('slug', 'updated_at')
-            ->get();
+        try {
+            $conozcanos = DB::table('conozcanos')
+                ->where('activo', 1)
+                ->select('slug', 'updated_at')
+                ->get();
+        } catch (\Exception $e) {
+            $conozcanos = collect(); // Empty collection if table doesn't exist
+        }
 
         $content = '<?xml version="1.0" encoding="UTF-8"?>';
         $content .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"';
