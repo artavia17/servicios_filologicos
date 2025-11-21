@@ -1,2 +1,64 @@
+# Robots.txt para Servicios Filológicos
+# https://www.serviciosfilologicos.com
+
+# Permitir todos los bots de búsqueda
 User-agent: *
-Disallow:
+Allow: /
+
+# Bloquear áreas administrativas y privadas
+Disallow: /home
+Disallow: /edit/
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+
+# Bloquear archivos y directorios del sistema
+Disallow: /vendor/
+Disallow: /storage/
+Disallow: /*.json$
+Disallow: /*.env$
+
+# Permitir acceso a archivos públicos importantes
+Allow: /public/
+Allow: /css/
+Allow: /js/
+Allow: /img/
+Allow: /fonts/
+
+# Configuración específica para Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /home
+Disallow: /edit/
+Disallow: /admin/
+
+# Configuración específica para Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /home
+Disallow: /edit/
+Disallow: /admin/
+
+# Permitir rastreadores de redes sociales
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.serviciosfilologicos.com/sitemap.xml
+Sitemap: https://www.serviciosfilologicos.com/image-sitemap.xml
+
+# Permitir Googlebot-Image para rastrear imágenes
+User-agent: Googlebot-Image
+Allow: /
+Allow: /public/img/
+Allow: /public/file_uploads/

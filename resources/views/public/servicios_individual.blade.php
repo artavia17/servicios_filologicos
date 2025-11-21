@@ -1,7 +1,98 @@
 @extends('public.layouts.public')
 @extends('public.layouts.footer')
-@section('description', $data->meta_description)
-@section('title',  '- ' . $data->title)
+
+@section('title', $data->title . ' - Servicios Filológicos')
+@section('meta_title', $data->title . ' - Servicios Filológicos Costa Rica')
+@section('description', $data->meta_description ?? 'Servicio profesional de ' . strtolower($data->title) . ' en Costa Rica. Calidad garantizada y atención personalizada.')
+@section('canonical', url('/servicios/' . $data->slug))
+
+@section('og_type', 'article')
+@section('og_url', url('/servicios/' . $data->slug))
+@section('og_title', $data->title . ' - Servicios Filológicos')
+@section('og_description', $data->meta_description ?? 'Servicio profesional de ' . strtolower($data->title))
+@section('og_image', $data->photo)
+
+@section('twitter_url', url('/servicios/' . $data->slug))
+@section('twitter_title', $data->title . ' - Servicios Filológicos')
+@section('twitter_description', $data->meta_description ?? 'Servicio profesional de ' . strtolower($data->title))
+@section('twitter_image', $data->photo)
+
+@section('additional_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ $data->title }}",
+  "description": "{{ strip_tags($data->meta_description ?? $data->descripcion) }}",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Servicios Filológicos",
+    "url": "{{ url('/') }}",
+    "telephone": "+50687295068",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San José",
+      "addressRegion": "San José",
+      "addressCountry": "CR"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Costa Rica"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "{{ url('/servicios/' . $data->slug) }}"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ $data->photo }}",
+    "caption": "{{ $data->title }} - Servicio profesional de filología",
+    "contentUrl": "{{ $data->photo }}",
+    "name": "{{ $data->title }}",
+    "description": "Imagen del servicio de {{ strtolower($data->title) }} ofrecido por Servicios Filológicos en Costa Rica"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "{{ url('/') }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Servicios",
+        "item": "{{ url('/servicios') }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ $data->title }}",
+        "item": "{{ url('/servicios/' . $data->slug) }}"
+      }
+    ]
+  }
+}
+</script>
+@if(count($comments) > 0)
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AggregateRating",
+  "itemReviewed": {
+    "@type": "Service",
+    "name": "{{ $data->title }}"
+  },
+  "ratingCount": "{{ count($comments) }}",
+  "reviewCount": "{{ count($comments) }}"
+}
+</script>
+@endif
+@endsection
+
 @section('content')
 
     <section class="servicios_individuales">
@@ -44,13 +135,13 @@
                  data-aos-once="true"
             >
                 <h2>Contácteme</h2>
-                <form action="{{route('send_email_services')}}">
+                <form action="{{route('send_email_services')}}" aria-label="Formulario de contacto para {{$data->title}}">
                     <input type="hidden" value="{{$data->title}}" name="title">
-                    <input type="text" info="Nombre completo" placeholder="Nombre completo"  name="name">
-                    <input type="email" info="Correo electrónico" placeholder="Correo electrónico"  name="email">
-                    <input type="tel" info="Número telefónico" placeholder="Número telefónico"  name="phone">
-                    <textarea id="" info="Mensaje" cols="30" rows="4" placeholder="Mensaje"  name="description"></textarea>
-                    <button>Enviar</button>
+                    <input type="text" info="Nombre completo" placeholder="Nombre completo" name="name" aria-label="Nombre completo" required>
+                    <input type="email" info="Correo electrónico" placeholder="Correo electrónico" name="email" aria-label="Correo electrónico" required>
+                    <input type="tel" info="Número telefónico" placeholder="Número telefónico" name="phone" aria-label="Número telefónico" required>
+                    <textarea info="Mensaje" cols="30" rows="4" placeholder="Mensaje" name="description" aria-label="Mensaje" required></textarea>
+                    <button type="submit" aria-label="Enviar consulta sobre {{$data->title}}">Enviar</button>
                 </form>
             </div>
         </section>
@@ -80,13 +171,19 @@
 
                     @if(count($comments) > 0)
                         @foreach($comments as $value)
-                            <article class="comment_user">
+                            <article class="comment_user" itemscope itemtype="https://schema.org/Review">
                                 <div class="name">
-                                    <h2>{{$value->nombre}}</h2>
-                                    <h3>{{$value->updated_at->diffForHumans()}}</h3>
+                                    <h2 itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                        <span itemprop="name">{{$value->nombre}}</span>
+                                    </h2>
+                                    <h3>
+                                        <time itemprop="datePublished" datetime="{{$value->updated_at->format('Y-m-d')}}">
+                                            {{$value->updated_at->diffForHumans()}}
+                                        </time>
+                                    </h3>
                                 </div>
                                 <div class="comment">
-                                    <p>{{$value->description}}</p>
+                                    <p itemprop="reviewBody">{{$value->description}}</p>
                                 </div>
                             </article>
                         @endforeach
@@ -122,16 +219,16 @@
                     <input type="hidden" name="id_service" value="{{$data->id}}">
 
                     <div class="mb-3 p-0 col-6 pe-4">
-                        <input type="text" class="form-control text-white" name="name" id="exampleFormControlInput1" info="Nombre completo" placeholder="Nombre completo">
+                        <input type="text" class="form-control text-white" name="name" id="commentName" info="Nombre completo" placeholder="Nombre completo" aria-label="Nombre completo" required>
                     </div>
                     <div class="mb-3 p-0 col-6">
-                        <input type="email" class="form-control text-white" name="email" id="exampleFormControlInput1" info="Correo electrónico" placeholder="Correo electrónico">
+                        <input type="email" class="form-control text-white" name="email" id="commentEmail" info="Correo electrónico" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
                     </div>
                     <div class="mb-3 p-0">
-                        <textarea class="form-control" id="exampleFormControlTextarea1 text-white" name="description"  rows="8" info="Comentario" placeholder="Comentario"></textarea>
+                        <textarea class="form-control text-white" id="commentText" name="description" rows="8" info="Comentario" placeholder="Comentario" aria-label="Comentario" required></textarea>
                     </div>
 
-                    <button type="submit" class="">Comentar</button>
+                    <button type="submit" class="" aria-label="Enviar comentario">Comentar</button>
 
                 </form>
 
@@ -156,6 +253,8 @@
                     @foreach($services as $value)
 
                         <article
+                            itemscope
+                            itemtype="https://schema.org/Service"
                             data-aos="fade-up"
                             data-aos-offset="200"
                             data-aos-delay="0"
@@ -164,12 +263,12 @@
                             data-aos-mirror="true"
                             data-aos-once="true"
                         >
-                            <a href="{{route('servicios_individual', $value->slug)}}" class="text-decoration-none">
+                            <a href="{{route('servicios_individual', $value->slug)}}" class="text-decoration-none" itemprop="url">
                                 <div class="mb-2">
-                                    <img src="{{$value->photo}}" alt="">
+                                    <img src="{{$value->photo}}" alt="{{$value->title}} - Servicio filológico" itemprop="image" loading="lazy" width="400" height="300">
                                 </div>
-                                <h3 class="text-black">{{$value->title}}</h3>
-                                <button class="w-100 mt-2 py-2 text-white">INFORMACIÓN</button>
+                                <h3 class="text-black" itemprop="name">{{$value->title}}</h3>
+                                <button class="w-100 mt-2 py-2 text-white" aria-label="Ver información de {{$value->title}}">INFORMACIÓN</button>
                             </a>
                         </article>
 

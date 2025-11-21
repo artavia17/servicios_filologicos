@@ -1,48 +1,78 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es-CR">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Servicios de Filología @yield('title')</title>
+    <!-- Primary Meta Tags -->
+    <title>@yield('title', 'Servicios Filológicos | Corrección de Tesis, Documentos y Clases de Español en Costa Rica')</title>
+    <meta name="title" content="@yield('meta_title', 'Servicios Filológicos | Corrección de Tesis, Documentos y Clases de Español en Costa Rica')">
+    <meta name="description" content="@yield('description', 'Ofrecemos servicios profesionales de revisión y corrección de tesis, documentos académicos, clases de español para extranjeros, tutorías y asesorías filológicas en Costa Rica.')">
+    <meta name="keywords" content="servicios filológicos, corrección de tesis, corrección de documentos, clases de español, español para extranjeros, filología, ortografía, gramática, revisión académica, tutorías español, asesorías lingüísticas, Costa Rica, corrector profesional, edición de textos">
+    <meta name="author" content="Servicios Filológicos">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="Spanish">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
 
-    <link rel="icon" href="{{asset('public\img\SVG\logo_escritorio.svg')}}" sizes="32x32">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="@yield('canonical', 'https://www.serviciosfilologicos.com')">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:url" content="@yield('og_url', 'https://www.serviciosfilologicos.com')">
+    <meta property="og:title" content="@yield('og_title', 'Servicios Filológicos | Corrección de Tesis y Clases de Español')">
+    <meta property="og:description" content="@yield('og_description', 'Servicios profesionales de revisión y corrección de tesis, documentos académicos, clases de español para extranjeros y asesorías filológicas en Costa Rica.')">
+    <meta property="og:image" content="@yield('og_image', asset('public/img/logo-og.png'))">
+    <meta property="og:image:secure_url" content="@yield('og_image', asset('public/img/logo-og.png'))">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logo Servicios Filológicos - Corrección de Tesis y Clases de Español">
+    <meta property="og:site_name" content="Servicios Filológicos">
+    <meta property="og:locale" content="es_CR">
+    <meta property="og:locale:alternate" content="es_ES">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="@yield('description')">
-    <meta name="keywords" content="servicios filologicos, filologia, tesis, español, correcciones, ortografia, correccion, clases">
-    <meta name="author" content="Alonso Artavia, artaviaalonso60@gmail.com">
-    <meta name='url' content='https://www.serviciosfilologicos.com'>
-    <meta name='identifier-URL' content='https://www.serviciosfilologicos.com'>
-    <meta name='subject' content='serviciosfilologicos.com subject'>
-    <meta name='copyright' content='serviciosfilologicos.com'>
-    <meta name='og:title' content='Servicios Filológicos'>
-    <meta name='og:type' content='Servicios Filológicos'>
-    <meta name='og:url' content='https://www.serviciosfilologicos.com'>
-    <meta name='og:image' content='{{asset('public\img\SVG\logo_escritorio.svg')}}'>
-    <meta name='og:site_name' content='Servicios Filológicos'>
-    <meta name='og:description' content='servicios filologicos, filologia, tesis, español, correcciones, ortografia, correccion, clases'>
-    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="@yield('twitter_url', 'https://www.serviciosfilologicos.com')">
+    <meta name="twitter:title" content="@yield('twitter_title', 'Servicios Filológicos | Corrección de Tesis y Clases de Español')">
+    <meta name="twitter:description" content="@yield('twitter_description', 'Servicios profesionales de revisión y corrección de tesis, documentos académicos, clases de español para extranjeros y asesorías filológicas en Costa Rica.')">
+    <meta name="twitter:image" content="@yield('twitter_image', asset('public/img/logo-og.png'))">
+    <meta name="twitter:image:alt" content="Logo Servicios Filológicos - Corrección de Tesis y Clases de Español">
 
-    <meta name='application-name' content='Servicios filológicos'>
-    <meta name='og:email' content='info@serviciosfilologicos.com'>
-    <meta name='og:phone_number' content='+50687295068'>
+    <!-- Contact & Business Information -->
+    <meta name="contact" content="info@serviciosfilologicos.com">
+    <meta name="geo.region" content="CR-SJ">
+    <meta name="geo.placename" content="Escazú, San José">
+    <meta name="geo.position" content="9.9281;-84.1397">
+    <meta name="ICBM" content="9.9281, -84.1397">
 
-    <meta name='og:region' content='CR'>
-    <meta name='og:country-name' content='CR'>
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" href="{{asset('public/img/logo-google.png')}}">
+    <link rel="shortcut icon" href="{{asset('public/img/logo-google.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('public/img/logo-google.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('public/img/logo-google.png')}}">
+    <link rel="manifest" href="{{asset('public/manifest.json')}}">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <!-- Stylesheets -->
     <link href="{{ asset('public/css/global.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="{{ asset('public/build/assets/app-67dcdfd2.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('public\build\assets\app-67dcdfd2.css') }}">
-
+    <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="SGgfor-1jYxz4fPnR7RHY_xDHSTMIRLQDKyBc-39Azs" />
 
     <!-- Google tag (gtag.js) -->
@@ -51,12 +81,91 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-F77ZDGF1HZ');
     </script>
 
-    <!-- Scripts -->
-    
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Servicios Filológicos",
+      "image": "{{ asset('public/img/logo-google.png') }}",
+      "logo": "{{ asset('public/img/logo-google.png') }}",
+      "@id": "https://www.serviciosfilologicos.com",
+      "url": "https://www.serviciosfilologicos.com",
+      "telephone": "+50687295068",
+      "email": "info@serviciosfilologicos.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Escazú",
+        "addressLocality": "San José",
+        "addressRegion": "San José",
+        "postalCode": "10203",
+        "addressCountry": "CR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 9.9281,
+        "longitude": -84.1397
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/fiorella-álvarez-ramírez-b1099878"
+      ],
+      "description": "Ofrecemos servicios profesionales de revisión y corrección de tesis, documentos académicos, clases de español para extranjeros, tutorías y asesorías filológicas en Costa Rica.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Costa Rica"
+      },
+      "serviceType": [
+        "Corrección de tesis",
+        "Corrección de documentos",
+        "Clases de español",
+        "Tutorías académicas",
+        "Asesorías filológicas"
+      ]
+    }
+    </script>
+
+    <!-- Additional Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Servicios Filológicos",
+      "alternateName": "Servicios Filológicos Costa Rica",
+      "url": "https://www.serviciosfilologicos.com",
+      "logo": "{{ asset('public/img/logo-google.png') }}",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+50687295068",
+        "contactType": "customer service",
+        "email": "info@serviciosfilologicos.com",
+        "areaServed": "CR",
+        "availableLanguage": ["Spanish", "English"]
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/fiorella-álvarez-ramírez-b1099878"
+      ]
+    }
+    </script>
+
+    @yield('additional_schema')
+
 </head>
 <body>
     <div id="app">
@@ -65,19 +174,19 @@
             <div class="container mt-3 mb-3">
                 <div class="navbar-brand d-flex" href="#">
                     <div class="d-flex">
-                        <a href="/" class="icon_site">
-                            <img src="{{asset('public\img\SVG\logo_escritorio.svg')}}" alt="logo" class="icons me-3 movile_desaparecer">
-                            <img src="{{asset('public\img\SVG\logo.svg')}}" alt="logo" class="icons me-3 movil_view">
+                        <a href="/" class="icon_site" aria-label="Inicio - Servicios Filológicos">
+                            <img src="{{asset('public/img/SVG/logo_escritorio.svg')}}" alt="Logo Servicios Filológicos - Corrección de tesis y clases de español" class="icons me-3 movile_desaparecer" width="150" height="50" loading="eager">
+                            <img src="{{asset('public/img/SVG/logo.svg')}}" alt="Logo Servicios Filológicos" class="icons me-3 movil_view" width="40" height="40" loading="eager">
                         </a>
-                        <a href="https://www.linkedin.com/in/fiorella-%C3%A1lvarez-ram%C3%ADrez-b1099878" target="_blank" class="movil_view">
-                            <img src="{{asset('public\img\SVG\linke.svg')}}" class="icons" alt="">
+                        <a href="https://www.linkedin.com/in/fiorella-%C3%A1lvarez-ram%C3%ADrez-b1099878" target="_blank" rel="noopener noreferrer" class="movil_view" aria-label="Visitar perfil de LinkedIn">
+                            <img src="{{asset('public/img/SVG/linke.svg')}}" class="icons" alt="LinkedIn Servicios Filológicos" width="30" height="30" loading="lazy">
                         </a>
                     </div>
-                    <a class="movile_desaparecer" href="https://api.whatsapp.com/send?phone=50687295068" target="_blank">
-                        <img src="{{asset('public\img\SVG\whatsapp.svg')}}" class="icons me-3" alt="">
+                    <a class="movile_desaparecer" href="https://api.whatsapp.com/send?phone=50687295068" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+                        <img src="{{asset('public/img/SVG/whatsapp.svg')}}" class="icons me-3" alt="Contacto WhatsApp +506 8729 5068" width="30" height="30" loading="lazy">
                     </a>
-                    <a href="https://www.linkedin.com/in/fiorella-%C3%A1lvarez-ram%C3%ADrez-b1099878" target="_blank" class="movile_desaparecer">
-                        <img src="{{asset('public\img\SVG\linke.svg')}}" class="icons" alt="">
+                    <a href="https://www.linkedin.com/in/fiorella-%C3%A1lvarez-ram%C3%ADrez-b1099878" target="_blank" rel="noopener noreferrer" class="movile_desaparecer" aria-label="Visitar perfil de LinkedIn">
+                        <img src="{{asset('public/img/SVG/linke.svg')}}" class="icons" alt="LinkedIn Servicios Filológicos" width="30" height="30" loading="lazy">
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,8 +216,8 @@
             </div>
         </nav>
 
-        <a href="https://api.whatsapp.com/send?phone=50687295068" target="_blank" class="movil_view fixed_icon-whatsapp">
-            <img src="{{asset('public\img\SVG\whatsapp.svg')}}" class="icons" alt="">
+        <a href="https://api.whatsapp.com/send?phone=50687295068" target="_blank" rel="noopener noreferrer" class="movil_view fixed_icon-whatsapp" aria-label="Contactar por WhatsApp">
+            <img src="{{asset('public/img/SVG/whatsapp.svg')}}" class="icons" alt="Contacto WhatsApp Servicios Filológicos" width="50" height="50" loading="lazy">
         </a>
 
         <div class="">

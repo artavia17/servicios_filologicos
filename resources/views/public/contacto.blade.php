@@ -1,6 +1,48 @@
 @extends('public.layouts.public')
-@section('title',  'Contacto')
-@section('description', $meta)
+
+@section('title', 'Contacto - Servicios Filológicos | Solicite una Cotización')
+@section('meta_title', 'Contacto - Servicios Filológicos | Solicite una Cotización')
+@section('description', $meta ?? 'Contáctenos para solicitar información sobre nuestros servicios de corrección de tesis, documentos y clases de español. Estamos ubicados en Escazú, San José, Costa Rica.')
+@section('canonical', url('/contacto'))
+
+@section('og_type', 'website')
+@section('og_url', url('/contacto'))
+@section('og_title', 'Contacto - Servicios Filológicos')
+@section('og_description', $meta ?? 'Contáctenos para solicitar información sobre nuestros servicios filológicos profesionales.')
+
+@section('twitter_url', url('/contacto'))
+@section('twitter_title', 'Contacto - Servicios Filológicos')
+@section('twitter_description', $meta ?? 'Contáctenos para solicitar información sobre nuestros servicios filológicos profesionales.')
+
+@section('additional_schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contacto",
+  "description": "{{ $meta ?? 'Contáctenos para más información' }}",
+  "url": "{{ url('/contacto') }}",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "{{ url('/') }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contacto",
+        "item": "{{ url('/contacto') }}"
+      }
+    ]
+  }
+}
+</script>
+@endsection
+
 @section('content')
 
     <main>
@@ -31,12 +73,12 @@
                 >
 
                     <div class="mb-3 p-0 col-6 pe-4 input_file">
-                        <input type="text" class="form-control text-white" name="name" id="exampleFormControlInput1" info="Nombre completo" placeholder="Nombre completo">
-                        <input type="email" class="form-control text-white" name="email" id="exampleFormControlInput1" info="Correo electrónico" placeholder="Correo electrónico">
-                        <input type="number" class="form-control text-white" name="phone" id="exampleFormControlInput1" info="Número telefónico" placeholder="Número telefónico">
+                        <input type="text" class="form-control text-white" name="name" id="contactName" info="Nombre completo" placeholder="Nombre completo" aria-label="Nombre completo" required>
+                        <input type="email" class="form-control text-white" name="email" id="contactEmail" info="Correo electrónico" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
+                        <input type="tel" class="form-control text-white" name="phone" id="contactPhone" info="Número telefónico" placeholder="Número telefónico" aria-label="Número telefónico" required>
                     </div>
                     <div class="mb-3 p-0 col-6">
-                        <textarea class="form-control" id="exampleFormControlTextarea1 text-white" name="description" rows="8" info="Comentario" placeholder="Comentario"></textarea>
+                        <textarea class="form-control text-white" id="contactMessage" name="description" rows="8" info="Comentario" placeholder="Comentario" aria-label="Comentario o mensaje" required></textarea>
                     </div>
                     
                     <div class="mb-3">
@@ -55,7 +97,7 @@
                     @endif
 
 
-                    <button type="submit" class="">Enviar</button>
+                    <button type="submit" class="" aria-label="Enviar formulario de contacto">Enviar</button>
 
                 </form>
 

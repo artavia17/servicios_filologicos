@@ -18,9 +18,15 @@ use App\Http\Controllers\Mail\ServiciosCotroller;
 use App\Http\Controllers\Mail\ContactoControllerMail;
 use App\Http\Controllers\ComentariosController;
 use App\Http\Controllers\UserAllController;
+use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\ImageSitemapController;
 
 
 // Public
+
+// SEO Routes
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+Route::get('/image-sitemap.xml', [ImageSitemapController::class, 'index'])->name('image_sitemap');
 
 Route::get('/', [HomePageController::class, 'index'])->name('home_page');
 Route::get('/sobre-nosotros', [AboutPageController::class, 'index'])->name('about');
